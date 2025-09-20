@@ -2,10 +2,10 @@ const { bots } = require('../lib/antilink');
 const { setAntilink, getAntilink, removeAntilink } = require('../lib/index');
 const isAdmin = require('../lib/isAdmin');
 
-async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSenderAdmin) {
+async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSenderAdmin, message) {
     try {
         if (!isSenderAdmin) {
-            await sock.sendMessage(chatId, { text: '```For Group Admins Only!```' });
+            await sock.sendMessage(chatId, { text: '```For Group Admins Only!```' }, { quoted: message });
             return;
         }
 
@@ -15,7 +15,7 @@ async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSend
 
         if (!action) {
             const usage = `\`\`\`ANTILINK SETUP\n\n${prefix}antilink on\n${prefix}antilink set delete | kick | warn\n${prefix}antilink off\n\`\`\``;
-            await sock.sendMessage(chatId, { text: usage });
+            await sock.sendMessage(chatId, { text: usage }, { quoted: message });
             return;
         }
 
@@ -23,38 +23,38 @@ async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSend
             case 'on':
                 const existingConfig = await getAntilink(chatId, 'on');
                 if (existingConfig?.enabled) {
-                    await sock.sendMessage(chatId, { text: '*_Antilink is already on_*' });
+                    await sock.sendMessage(chatId, { text: '*_Antilink is already on_*' }, { quoted: message });
                     return;
                 }
                 const result = await setAntilink(chatId, 'on', 'delete');
                 await sock.sendMessage(chatId, { 
                     text: result ? '*_Antilink has been turned ON_*' : '*_Failed to turn on Antilink_*' 
-                });
+                },{ quoted: message });
                 break;
 
             case 'off':
                 await removeAntilink(chatId, 'on');
-                await sock.sendMessage(chatId, { text: '*_Antilink has been turned OFF_*' });
+                await sock.sendMessage(chatId, { text: '*_Antilink has been turned OFF_*' }, { quoted: message });
                 break;
 
             case 'set':
                 if (args.length < 2) {
                     await sock.sendMessage(chatId, { 
                         text: `*_Please specify an action: ${prefix}antilink set delete | kick | warn_*` 
-                    });
+                    }, { quoted: message });
                     return;
                 }
                 const setAction = args[1];
                 if (!['delete', 'kick', 'warn'].includes(setAction)) {
                     await sock.sendMessage(chatId, { 
                         text: '*_Invalid action. Choose delete, kick, or warn._*' 
-                    });
+                    }, { quoted: message });
                     return;
                 }
                 const setResult = await setAntilink(chatId, 'on', setAction);
                 await sock.sendMessage(chatId, { 
                     text: setResult ? `*_Antilink action set to ${setAction}_*` : '*_Failed to set Antilink action_*' 
-                });
+                }, { quoted: message });
                 break;
 
             case 'get':
@@ -62,7 +62,7 @@ async function handleAntilinkCommand(sock, chatId, userMessage, senderId, isSend
                 const actionConfig = await getAntilink(chatId, 'on');
                 await sock.sendMessage(chatId, { 
                     text: `*_Antilink Configuration:_*\nStatus: ${status ? 'ON' : 'OFF'}\nAction: ${actionConfig ? actionConfig.action : 'Not set'}` 
-                });
+                }, { quoted: message });
                 break;
 
             default:

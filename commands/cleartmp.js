@@ -12,7 +12,12 @@ function clearDirectory(dirPath) {
         for (const file of files) {
             try {
                 const filePath = path.join(dirPath, file);
-                fs.unlinkSync(filePath);
+                const stat = fs.lstatSync(filePath);
+                if (stat.isDirectory()) {
+                    fs.rmSync(filePath, { recursive: true, force: true });
+                } else {
+                    fs.unlinkSync(filePath);
+                }
                 deletedCount++;
             } catch (err) {
                 // Only log errors

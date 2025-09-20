@@ -2,8 +2,8 @@ const fetch = require('node-fetch');
 
 async function rosedayCommand(sock, chatId, message) {
     try {
-        const shizokeys = 'ben 10 md';
-        const res = await fetch(`https://api.shizo.top/quote/roseday?apikey=${shizokeys}`);
+        
+        const res = await fetch(`https://api.princetechn.com/api/fun/roseday?apikey=prince`);
         
         if (!res.ok) {
             throw await res.text();

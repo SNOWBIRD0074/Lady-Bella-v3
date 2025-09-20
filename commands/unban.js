@@ -18,7 +18,7 @@ async function unbanCommand(sock, chatId, message) {
         await sock.sendMessage(chatId, { 
             text: 'Please mention the user or reply to their message to unban!', 
             ...channelInfo 
-        });
+        }, { quoted: message });
         return;
     }
 
@@ -43,7 +43,7 @@ async function unbanCommand(sock, chatId, message) {
         }
     } catch (error) {
         console.error('Error in unban command:', error);
-        await sock.sendMessage(chatId, { text: 'Failed to unban user!', ...channelInfo });
+        await sock.sendMessage(chatId, { text: 'Failed to unban user!', ...channelInfo }, { quoted: message });
     }
 }
 

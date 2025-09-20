@@ -2,8 +2,8 @@ const fetch = require('node-fetch');
 
 async function goodnightCommand(sock, chatId, message) {
     try {
-        const shizokeys = '𝗕𝗘𝗡 10 𝗠𝗗';
-        const res = await fetch(`https://api.shizo.top/api/quote/gnsd?apikey=${shizokeys}`);
+        const shizokeys = 'shizo';
+        const res = await fetch(`https://shizoapi.onrender.com/api/texts/lovenight?apikey=${shizokeys}`);
         
         if (!res.ok) {
             throw await res.text();

@@ -2,8 +2,8 @@ const fetch = require('node-fetch');
 
 async function truthCommand(sock, chatId, message) {
     try {
-        const shizokeys = 'knightbot';
-        const res = await fetch(`https://api.shizo.top/api/quote/truth?apikey=${shizokeys}`);
+        const shizokeys = 'shizo';
+        const res = await fetch(`https://shizoapi.onrender.com/api/texts/truth?apikey=${shizokeys}`);
         
         if (!res.ok) {
             throw await res.text();

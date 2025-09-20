@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 async function shayariCommand(sock, chatId, message) {
     try {
-        const response = await fetch('https://api.shizo.top/api/quote/shayari?apikey=knightbot');
+        const response = await fetch('https://shizoapi.onrender.com/api/texts/shayari?apikey=shizo');
         const data = await response.json();
         
         if (!data || !data.result) {

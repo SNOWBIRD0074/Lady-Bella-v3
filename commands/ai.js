@@ -8,6 +8,8 @@ async function aiCommand(sock, chatId, message) {
         if (!text) {
             return await sock.sendMessage(chatId, { 
                 text: "Please provide a question after .gpt or .gemini\n\nExample: .gpt write a basic html code"
+            }, {
+                quoted: message
             });
         }
 
@@ -19,7 +21,7 @@ async function aiCommand(sock, chatId, message) {
         if (!query) {
             return await sock.sendMessage(chatId, { 
                 text: "Please provide a question after .gpt or .gemini"
-            });
+            }, {quoted:message});
         }
 
         try {
@@ -82,6 +84,8 @@ async function aiCommand(sock, chatId, message) {
                     mentionedJid: [message.key.participant || message.key.remoteJid],
                     quotedMessage: message.message
                 }
+            }, {
+                quoted: message
             });
         }
     } catch (error) {
@@ -92,6 +96,8 @@ async function aiCommand(sock, chatId, message) {
                 mentionedJid: [message.key.participant || message.key.remoteJid],
                 quotedMessage: message.message
             }
+        }, {
+            quoted: message
         });
     }
 }

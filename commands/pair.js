@@ -10,8 +10,8 @@ async function pairCommand(sock, chatId, message, q) {
                     forwardingScore: 1,
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
-                        newsletterJid: '120363399707841760@newsletter',
-                        newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                        newsletterJid: '120363399707841760@newsletter+',
+                        newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                         serverMessageId: -1
                     }
                 }
@@ -30,7 +30,7 @@ async function pairCommand(sock, chatId, message, q) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363399707841760@newsletter',
-                        newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                        newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                         serverMessageId: -1
                     }
                 }
@@ -49,7 +49,7 @@ async function pairCommand(sock, chatId, message, q) {
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: '120363399707841760@newsletter',
-                            newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                            newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                             serverMessageId: -1
                         }
                     }
@@ -63,7 +63,7 @@ async function pairCommand(sock, chatId, message, q) {
                     isForwarded: true,
                     forwardedNewsletterMessageInfo: {
                         newsletterJid: '120363399707841760@newsletter',
-                        newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                        newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                         serverMessageId: -1
                     }
                 }
@@ -86,7 +86,7 @@ async function pairCommand(sock, chatId, message, q) {
                             isForwarded: true,
                             forwardedNewsletterMessageInfo: {
                                 newsletterJid: '120363399707841760@newsletter',
-                                newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                                newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                                 serverMessageId: -1
                             }
                         }
@@ -107,7 +107,7 @@ async function pairCommand(sock, chatId, message, q) {
                         isForwarded: true,
                         forwardedNewsletterMessageInfo: {
                             newsletterJid: '120363399707841760@newsletter',
-                            newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                            newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                             serverMessageId: -1
                         }
                     }
@@ -123,7 +123,7 @@ async function pairCommand(sock, chatId, message, q) {
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
                     newsletterJid: '120363399707841760@newsletter',
-                    newsletterName: '𝗕𝗘𝗡 10 𝗠𝗗',
+                    newsletterName: 'ʟᴀᴅʏ ʙᴇʟʟᴀ ᴠ3',
                     serverMessageId: -1
                 }
             }
